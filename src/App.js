@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import Footer from './components/Footer';
 import FormInput from './components/FormInput';
 
 function App() {
@@ -69,20 +70,23 @@ function App() {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
   return (
-    <div className="app">
-      <form onSubmit={handleSubmit}>
-        <h1>Register</h1>
-        {inputs.map((input) => (
-          <FormInput
-            key={input.id}
-            {...input}
-            value={values[input.name]}
-            onChange={onChange}
-          />
-        ))}
-        <button>Submit</button>
-      </form>
-    </div>
+    <>
+      <div className="app">
+        <form onSubmit={handleSubmit}>
+          <h1>Register</h1>
+          {inputs.map((input) => (
+            <FormInput
+              key={input.id}
+              {...input}
+              value={values[input.name]}
+              onChange={onChange}
+            />
+          ))}
+          <button>Submit</button>
+        </form>
+        <Footer />
+      </div>
+    </>
   );
 }
 
